@@ -12,9 +12,6 @@ import java.util.UUID;
 @RestController
 public class UsuarioController {
 
-    //PUT /usuarios/{id}
-    //DELETE /usuarios/{id}
-
     @Autowired
     private UsuarioService usuarioService;
 
@@ -67,6 +64,17 @@ public class UsuarioController {
         }
         catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/usuarios/{id}")
+    public ResponseEntity<Object> reactivateUsuario(@PathVariable UUID id) {
+        try {
+            Usuario usuario = usuarioService.reactivateUsuario(id);
+            return ResponseEntity.ok(usuario);
+        }
+        catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 }

@@ -43,7 +43,7 @@ public class UsuarioService {
         Collection<Usuario> totalUsuarios = new ArrayList<>();
 
         for (Usuario u : usuarios.values()) {
-            if (u.getEmail() != null) {
+            if (u.getEmail() != null && u.isAtivo()) {
                 totalUsuarios.add(u);
             }
         }
@@ -56,8 +56,8 @@ public class UsuarioService {
 
         Usuario usuario = usuarios.get(id);
 
-        if (usuario == null) {
-            throw new RuntimeException("Esse usuário não existe");
+        if (usuario == null || !usuario.isAtivo()) {
+            throw new RuntimeException("Esse usuário não existe ou está inativo");
         }
 
         return usuario;
@@ -95,6 +95,22 @@ public class UsuarioService {
         }
 
         usuario.setAtivo(false);
+    }
+
+    //PUT /usuarios/{id}
+    public Usuario reactivateUsuario(UUID id) {
+        Usuario usuario = usuarios.get(id);
+
+        if (usuario == null) {
+            throw new RuntimeException("Esse usuário não existe ou não pode ser modificado");
+        }
+
+        if (usuario.isAtivo()) {
+            throw new RuntimeException("Esse usuário já está ativo");
+        }
+
+        usuario.setAtivo(true);
+        return usuario;
     }
 
 }
