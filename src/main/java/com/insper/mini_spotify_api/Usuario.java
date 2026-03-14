@@ -1,6 +1,8 @@
 package com.insper.mini_spotify_api;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.UUID;
 
 public class Usuario {
@@ -12,7 +14,7 @@ public class Usuario {
     private boolean ativo;
     private LocalDateTime dataCriacao;
     private Estatisticas estatisticas;
-    private Playlist playlists;
+    private Collection<Playlist> playlists;
 
 
     public Usuario() {
@@ -89,11 +91,11 @@ public class Usuario {
         this.estatisticas = estatisticas;
     }
 
-    public Playlist getPlaylists() {
+    public Collection<Playlist> getPlaylists() {
         return playlists;
     }
 
     public void setPlaylists(Playlist playlists) {
-        this.playlists = playlists;
+        this.playlists = Collections.singletonList(playlists);
     }
 }

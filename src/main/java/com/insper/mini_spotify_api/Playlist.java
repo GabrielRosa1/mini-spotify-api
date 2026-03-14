@@ -10,7 +10,7 @@ public class Playlist {
 
     private UUID id;
     private String nome;
-    private boolean publica;
+    private Boolean publica;
     private LocalDateTime dataCriacao;
     private Usuario usuario;
     private List<Musica> musicas;
@@ -32,11 +32,11 @@ public class Playlist {
         this.nome = nome;
     }
 
-    public boolean getPublica() {
+    public Boolean getPublica() {
         return publica;
     }
 
-    public void setPublica(boolean publica) {
+    public void setPublica(Boolean publica) {
         this.publica = publica;
     }
 
