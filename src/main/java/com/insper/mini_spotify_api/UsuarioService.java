@@ -113,4 +113,13 @@ public class UsuarioService {
         return usuario;
     }
 
+    public boolean verifyUUID(UUID id) {
+        for (Usuario u : usuarios.values()) {
+            if (u.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
