@@ -1,6 +1,7 @@
 package com.insper.mini_spotify_api;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 public class Artista {
@@ -9,6 +10,8 @@ public class Artista {
     private String nome;
     private String generoMusical;
     private String paisOrigem;
+    private List<Album> albuns;
+    private boolean ativo;
 
 
     public UUID getId() {
@@ -41,6 +44,22 @@ public class Artista {
 
     public void setPaisOrigem(String paisOrigem) {
         this.paisOrigem = paisOrigem;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public List<Album> getAlbuns() {
+        return albuns;
+    }
+
+    public void setAlbuns(List<Album> albuns) {
+        this.albuns = albuns;
     }
 
 }

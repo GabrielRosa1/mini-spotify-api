@@ -12,7 +12,14 @@ import java.util.UUID;
 @Service
 public class MusicaService {
 
+    private final ArtistaService artistaService;
+    private final AlbumService albumService;
     private final HashMap<UUID, Musica> musicas = new HashMap<>();
+
+    public MusicaService(ArtistaService artistaService, AlbumService albumService) {
+        this.artistaService = artistaService;
+        this.albumService = albumService;
+    }
 
 
     //POST /musicas
