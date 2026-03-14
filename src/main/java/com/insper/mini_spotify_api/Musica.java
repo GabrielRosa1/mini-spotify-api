@@ -11,7 +11,7 @@ public class Musica {
     private Album album;
     private Artista artista;
     private int totalReproducoes;
-
+    private boolean ativo;
 
     public UUID getId() {
         return id;
@@ -69,4 +69,11 @@ public class Musica {
         this.totalReproducoes = totalReproducoes;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
 }

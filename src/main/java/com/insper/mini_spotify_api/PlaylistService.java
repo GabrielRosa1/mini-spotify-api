@@ -10,10 +10,12 @@ import java.util.*;
 public class PlaylistService {
 
     private final UsuarioService usuarioService;
+    private final MusicaService musicaService;
     private HashMap<UUID, Playlist> playlists = new HashMap<>();
 
-    public PlaylistService(UsuarioService usuarioService) {
+    public PlaylistService(UsuarioService usuarioService, MusicaService musicaService) {
         this.usuarioService = usuarioService;
+        this.musicaService = musicaService;
     }
 
 
@@ -140,6 +142,16 @@ public class PlaylistService {
         }
 
         playlist.setAtivo(true);
+        return playlist;
+    }
+
+    //POST /playlists/{id}/musica/{id}
+    public Playlist adicionarMusica(UUID pId, UUID mId) {
+        Playlist playlist = playlists.get(pId);
+        Musica musica = musicaService.getMusica(mId);
+        List<Musica> musicas = playlist.getMusicas();
+        musicas.add(musica);
+        playlist.setMusicas(musicas);
         return playlist;
     }
 

@@ -78,4 +78,15 @@ public class PlaylistController {
         }
     }
 
+    @PostMapping("/playlists/{id}/musica/{id}")
+    public ResponseEntity<Object> adicionarMusica(@PathVariable UUID pID, @PathVariable UUID mID) {
+        try {
+            Playlist playlist = playlistService.adicionarMusica(pID, mID);
+            return ResponseEntity.ok(playlist);
+        }
+        catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
 }
