@@ -11,6 +11,18 @@ O projeto permite o gerenciamento de:
 - Playlists
 - Estatísticas
 
+## Ordem ideal para testar
+
+1. Criar usuário
+2. Criar artista
+3. Criar álbum
+4. Criar música
+5. Criar playlist
+6. Reproduzir música
+7. Adicionar música à playlist
+8. Buscar estatísticas
+9. Buscar top músicas
+
 Além do CRUD tradicional, a aplicação também implementa regras de negócio específicas, como reprodução de músicas, adição de músicas em playlists e relatório de músicas mais reproduzidas.
 
 ---
